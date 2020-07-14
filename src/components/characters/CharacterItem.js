@@ -1,7 +1,6 @@
 import React from 'react';
 
 const CharacterItem = ({ item }) => {
-  console.log(item);
   return (
     <div className="card">
       <div className="card-inner">
@@ -15,7 +14,7 @@ const CharacterItem = ({ item }) => {
               <strong>Actor Name:</strong> {item.portrayed}
             </li>
             <li>
-              <strong>Nickname:</strong> {item.portrayed}
+              <strong>Nickname:</strong> {item.nickname}
             </li>
             <li>
               <strong>Birthday:</strong> {item.birthday}

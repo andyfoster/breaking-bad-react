@@ -9,19 +9,34 @@ const App = () => {
   const [items, setItems] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [query, setQuery] = useState('');
+  const [data, setData] = useState([]);
 
   useEffect(() => {
     const fetchItems = async () => {
       const result = await axios(
-        `https://www.breakingbadapi.com/api/characters?name=${query}`
+        `https://www.breakingbadapi.com/api/characters`
       );
+      // set data and don't change it
+      setData(result.data);
 
+      // set the current items in query - start with all
       setItems(result.data);
+
       setIsLoading(false);
     };
 
     fetchItems();
-  }, [query]);
+  }, []);
+
+  useEffect(() => {
+    setItems(
+      data.filter((e) => {
+        let q = query.toLowerCase();
+        let n = e.name.toLowerCase();
+        return n.includes(q);
+      })
+    );
+  }, [query, data]);
 
   return (
     <div className="container">
