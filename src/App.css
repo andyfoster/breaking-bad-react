@@ -120,6 +120,16 @@ input[type='text'] {
   padding-bottom: 10px;
 }
 
+form {
+  margin-bottom: 40px;
+}
+
+.spinnerImg {
+  width: 100px;
+  margin: auto;
+  display: block;
+}
+
 @media (max-width: 800px) {
   .cards {
     grid-template-columns: repeat(2, 1fr);
